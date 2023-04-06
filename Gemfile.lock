@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stack_trace-rspec (0.2.0)
+    stack_trace-rspec (0.3.0)
       stack_trace-viz (~> 0.4)
 
 GEM
