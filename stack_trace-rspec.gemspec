@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "stack_trace-viz", "~> 0.1"
+  spec.add_dependency "stack_trace-viz", "~> 0.2"
 end
