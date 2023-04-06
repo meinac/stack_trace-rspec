@@ -4,6 +4,7 @@ require_relative "rspec/version"
 
 require "stack_trace/viz"
 require "pathname"
+require "securerandom"
 
 RSpec.configuration.after(:suite) do
   StackTrace::Rspec.finish_tracing
