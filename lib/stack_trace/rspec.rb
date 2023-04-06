@@ -29,6 +29,8 @@ module StackTrace
 
     class << self
       def finish_tracing
+        ensure_path_is_created!
+
         html.save(file_path)
             .then { |path| print_message(path) }
       end
@@ -39,6 +41,10 @@ module StackTrace
 
       private
 
+      def ensure_path_is_created!
+        Dir.mkdir(file_dir) unless File.directory?(file_dir)
+      end
+
       def html
         @html ||= StackTrace::Viz::HTML.new
       end
@@ -48,9 +54,12 @@ module StackTrace
       end
 
       def file_path
+        file_dir.join("#{SecureRandom.uuid}.html")
+      end
+
+      def file_dir
         Pathname.new(RSpec.configuration.default_path)
                 .join("stack_trace")
-                .join("#{Securerandom.uuid}.html")
       end
     end
   end
