@@ -32,7 +32,7 @@ module StackTrace
       end
 
       def store_trace(trace, example)
-        html.add(trace, example.metadata.slice(*EXAMPLE_META_KEYS))
+        html.add(trace, **example.metadata.slice(*EXAMPLE_META_KEYS))
       end
 
       private
